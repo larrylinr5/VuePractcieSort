@@ -40,7 +40,10 @@ const app = createApp({
     computeData() {
       const vm = this;
 
-      /** 排序功能 */
+      /** 排序功能
+       * @param isReverse : 是否加入反轉class的佈林值
+       * @param field : 觸發欄位
+       */
       const sortList = (isReverse, field) =>
         vm.products.sort((a, b) =>
           isReverse ? -(a[field] - b[field]) : a[field] - b[field]
