@@ -40,29 +40,19 @@ const app = createApp({
     computeData: function () {
       const vm = this;
 
-      /** 由大到小排序 */
-      const sortdown = (field) =>
+      /** 排序功能 */
+      const sortList = (isReverse, field) =>
         vm.products.sort((a, b) =>
-          field === "price" ? a.price - b.price : a.expiryDate - b.expiryDate
-        );
-
-      /** 由小到大排序 */
-      const sortup = (field) =>
-        vm.products.sort((a, b) =>
-          field === "price"
-            ? -(a.price - b.price)
-            : -(a.expiryDate - b.expiryDate)
+          isReverse ? -(a[field] - b[field]) : a[field] - b[field]
         );
 
       switch (vm.field) {
         //價格排序
         case "price":
-          return vm.isReverse === true ? sortup("price") : sortdown("price");
+          return sortList(vm.isReverse, "price");
         //到期日排序
         case "expiryDate":
-          return vm.isReverse === true
-            ? sortup("expiryDate")
-            : sortdown("expiryDate");
+          return sortList(vm.isReverse, "expiryDate");
         //預設
         default:
           return vm.products;
