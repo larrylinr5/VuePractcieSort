@@ -37,7 +37,7 @@ const app = createApp({
     };
   },
   computed: {
-    computeData: function () {
+    computeData() {
       const vm = this;
 
       /** 排序功能 */
