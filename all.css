@@ -1,0 +1,12 @@
+.table th.click {
+  /* 滑鼠指上去會變成手指 */
+  cursor: pointer;
+}
+
+.icon {
+  display: inline-block;
+}
+
+.icon.inverse {
+  transform: rotate(180deg);
+}
